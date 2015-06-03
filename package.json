@@ -1,0 +1,40 @@
+{
+  "name": "SRRiotNode",
+  "version": "1.0.0",
+  "description": "Serverside render using Riot.js",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://stoneli88@github.com/stoneli88/SRRiotNode.git"
+  },
+  "keywords": [
+    "riot",
+    "serverside",
+    "javascript"
+  ],
+  "author": "stone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stoneli88/SRRiotNode/issues"
+  },
+  "homepage": "https://github.com/stoneli88/SRRiotNode",
+  "devDependencies": {
+    "babel": "^5.4.7",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.3",
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-cssshrink": "^0.1.4",
+    "gulp-minify-css": "^1.1.5",
+    "gulp-sourcemaps": "^1.5.2",
+    "riotify": "^0.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "riot": "^2.1.0"
+  }
+}
