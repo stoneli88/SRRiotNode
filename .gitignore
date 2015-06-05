@@ -31,3 +31,4 @@ node_modules
 
 # Project Compiled temp files
 dist
+.idea

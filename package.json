@@ -24,17 +24,22 @@
   "devDependencies": {
     "babel": "^5.4.7",
     "babelify": "^6.1.2",
+    "browser-sync": "^2.7.6",
     "browserify": "^10.2.3",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
     "gulp-cssshrink": "^0.1.4",
+    "gulp-jshint": "^1.11.0",
     "gulp-minify-css": "^1.1.5",
+    "gulp-nodemon": "^2.0.3",
     "gulp-sourcemaps": "^1.5.2",
+    "jshint-stylish": "^2.0.0",
     "riotify": "^0.1.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "express": "^4.12.4",
     "riot": "^2.1.0"
   }
 }

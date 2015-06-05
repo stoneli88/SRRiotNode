@@ -10,6 +10,9 @@ var sourcemaps = require('gulp-sourcemaps');
 var minifycss = require('gulp-minify-css');
 var concat = require('gulp-concat');
 var babelify = require('babelify');
+var nodemon = require('gulp-nodemon');
+var jshint = require('gulp-jshint');
+var browserSync = require('browser-Sync').create();
 
 gulp.task('browserify:todo', function () {
   return browserify({entries: ['client/todo_app/app.js']})
@@ -35,4 +38,37 @@ gulp.task('clean', function(cb) {
   ], cb);
 });
 
-gulp.task('default', ['clean', 'browserify:todo', 'css:todo']);
+gulp.task('lint:js', function () {
+  return gulp.src('./client/**/*.js')
+          .pipe(jshint({'lookup':true, 'linter': 'jshint'}));
+          //.pipe(jshint.report('jshint-stylish'));
+});
+
+// dev task for multiple page application.
+gulp.task('dev:mpa', ['default', 'dev:mpa:nodemon'], function() {
+
+});
+
+// server side node sync.
+gulp.task('dev:mpa:nodemon', function() {
+  // Server side change need to restart Express.
+  nodemon({
+    script: './server/express.js',
+    ext: 'js node',
+    ignore: ['./dist/**/*', './client/**/*', 'gulpfile.js'],
+    task: []
+  });
+});
+
+// dev task for sigle page application.
+gulp.task('dev:spa', ['default'], function () {
+  // Client change using browserSync to refresh page.
+  browserSync.init({
+    server: { baseDir: './dist' }
+  });
+  gulp.watch('clent/*.js', ['lint:js'], browserSync.reload);
+  gulp.watch('clent/*.css', ['css:todo'], browserSync.reload);
+  gulp.watch('clent/*.html', ['clean', 'browserify:todo'], browserSync.reload);
+});
+
+gulp.task('default', ['clean', 'browserify:todo', 'css:todo', 'lint:js']);
